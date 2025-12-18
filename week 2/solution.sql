@@ -8,15 +8,12 @@ FROM Sales s
 INNER JOIN Product p 
     ON s.product_id = p.product_id;
 
-    /* problem 2*/
+ /* problem 2*/
 
-    SELECT 
-    p.product_name, 
-    s.year, 
-    s.price
-FROM Sales s
-INNER JOIN Product p 
-    ON s.product_id = p.product_id;
+SELECT EmployeeUNI.unique_id AS unique_id, Employees.name AS name
+FROM Employees 
+LEFT JOIN EmployeeUNI 
+ON Employees.id = EmployeeUNI.id;
 
 /* problem 3 */
 
@@ -32,12 +29,11 @@ GROUP BY v.customer_id;
 
 /* problem 4 */
 
-SELECT 
-    w1.id
-FROM Weather w1
-INNER JOIN Weather w2 
-    ON DATEDIFF(day, w2.recordDate, w1.recordDate) = 1
-WHERE w1.temperature > w2.temperature;
+SELECT W1.id
+FROM Weather W1
+INNER JOIN Weather W2
+ON DATEDIFF(W1.recordDate, W2.recordDate) = 1
+WHERE W1.temperature > W2.temperature;
 
 /* problem 5 */
 
